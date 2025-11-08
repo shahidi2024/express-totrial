@@ -51,6 +51,17 @@ app.put('/courses/:id', ( req, res ) => {
 })
 
 
+app.get("/api/users/:userId/article/:articleId", (req, res) => {
+  console.log(`UserId: ${req.params.userId}`);
+  console.log(`ArticleId: ${req.params.articleId}`);
+
+  res.json({
+    message : "Main User Articles Send To Client :))"
+  })
+
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
