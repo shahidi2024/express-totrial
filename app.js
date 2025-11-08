@@ -30,7 +30,7 @@ app.get('/courses/:courseId', (req, res) => {
 
     const course = courses.find( item => item.id === Number(req.params.courseId) )
     if (course) {
-        res.send(course)
+        res.json(course)
     } else {
         res.send('no course found :))')
     }
