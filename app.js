@@ -2,18 +2,42 @@ const express = require('express')
 const app = express()
 const port = 5000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+
+const courses = [
+    {
+        id : 1,
+        title : 'JS',
+        price : 0
+    },
+    {
+        id : 2,
+        title : 'React',
+        price : 5000
+    },
+    {
+        id : 3,
+        title : 'Nodejs',
+        price : 3500
+    },
+    {
+        id : 4,
+        title : 'MongoDB',
+        price : 0
+    },
+]
+
+app.get('/courses/:courseId', (req, res) => {
+
+    const course = courses.find( item => item.id === Number(req.params.courseId) )
+    if (course) {
+        res.send(course)
+    } else {
+        res.send('no course found :))')
+    }
+
+  
 })
 
-
-app.get('/about', (req, res) => {
-    res.send('Welcome to about page')
-})
-
-app.get('/contact', (req, res) => {
-    res.send('Welcome to contact page')
-})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
