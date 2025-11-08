@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+app.use(express.json())
+
+
+
 const port = 5000;
 
 const courses = [
@@ -38,6 +42,8 @@ app.get("/courses/:courseId", (req, res) => {
 
 
 app.post('/courses', ( req, res ) => {
+    console.log(req.body);
+    
     res.statusCode = 201;
     res.send(`New Courses Created Successfully`)
 })
